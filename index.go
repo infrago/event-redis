@@ -2,6 +2,7 @@ package event_redis
 
 import (
 	"github.com/infrago/event"
+	"github.com/infrago/infra"
 )
 
 func Driver() event.Driver {
@@ -9,5 +10,5 @@ func Driver() event.Driver {
 }
 
 func init() {
-	event.Register("redis", Driver())
+	infra.Register("redis", Driver())
 }
