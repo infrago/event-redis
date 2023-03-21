@@ -1,2 +1,2 @@
 # event-redis
-infra.go redis event driver.
+infra.Go redis event driver.
