@@ -228,7 +228,7 @@ func (this *redisConnect) Stop() error {
 	return nil
 }
 
-func (this *redisConnect) Notify(name string, data []byte) error {
+func (this *redisConnect) Publish(name string, data []byte) error {
 	if this.client == nil {
 		return errInvalidConnection
 	}
