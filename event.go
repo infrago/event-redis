@@ -57,28 +57,28 @@ func (driver *redisDriver) Connect(inst *event.Instance) (event.Connect, error) 
 		Idle: 30, Active: 100, Timeout: 240,
 	}
 
-	if vv, ok := inst.Config.Setting["server"].(string); ok && vv != "" {
+	if vv, ok := inst.Setting["server"].(string); ok && vv != "" {
 		setting.Server = vv
 	}
-	if vv, ok := inst.Config.Setting["password"].(string); ok && vv != "" {
+	if vv, ok := inst.Setting["password"].(string); ok && vv != "" {
 		setting.Password = vv
 	}
 
 	//数据库，redis的0-16号
-	if v, ok := inst.Config.Setting["database"].(string); ok {
+	if v, ok := inst.Setting["database"].(string); ok {
 		setting.Database = v
 	}
 
-	if vv, ok := inst.Config.Setting["idle"].(int64); ok && vv > 0 {
+	if vv, ok := inst.Setting["idle"].(int64); ok && vv > 0 {
 		setting.Idle = int(vv)
 	}
-	if vv, ok := inst.Config.Setting["active"].(int64); ok && vv > 0 {
+	if vv, ok := inst.Setting["active"].(int64); ok && vv > 0 {
 		setting.Active = int(vv)
 	}
-	if vv, ok := inst.Config.Setting["timeout"].(int64); ok && vv > 0 {
+	if vv, ok := inst.Setting["timeout"].(int64); ok && vv > 0 {
 		setting.Timeout = time.Second * time.Duration(vv)
 	}
-	if vv, ok := inst.Config.Setting["timeout"].(string); ok && vv != "" {
+	if vv, ok := inst.Setting["timeout"].(string); ok && vv != "" {
 		td, err := util.ParseDuration(vv)
 		if err == nil {
 			setting.Timeout = td
