@@ -1,4 +1,4 @@
 module github.com/infrago/event-redis
 
-go 1.17
+go 1.18
 
