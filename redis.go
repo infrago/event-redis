@@ -8,13 +8,13 @@ import (
 	"sync"
 	"time"
 
-	"github.com/bamgoo/bamgoo"
-	"github.com/bamgoo/event"
+	"github.com/infrago/infra"
+	"github.com/infrago/event"
 	"github.com/redis/go-redis/v9"
 )
 
 func init() {
-	bamgoo.Register("redis", &redisDriver{})
+	infra.Register("redis", &redisDriver{})
 }
 
 type (
@@ -147,7 +147,7 @@ func (c *redisConnection) Start() error {
 	}
 
 	for stream, group := range c.streams {
-		consumer := bamgoo.Generate("event")
+		consumer := infra.Generate("event")
 
 		c.wg.Add(1)
 		go func(streamName, groupName, consumerName string) {

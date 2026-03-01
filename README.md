@@ -1,2 +1,2 @@
 # event-redis
-bamgoo redis event driver.
+infrago redis event driver.
